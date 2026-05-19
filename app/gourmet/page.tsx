@@ -18,7 +18,7 @@ async function getGourmetProducts({ page, search, sort = 'latest' }: GetGourmetP
     // Fetch all products
     let query = supabase
         .from('product')
-        .select('id, name, description, price, categories, images, product_type, variations, created_at')
+        .select('id, name, description, price, categories, images, product_type, variations, is_new, created_at')
         .order('created_at', { ascending: sort === 'oldest' })
 
     const { data: allProducts, error } = await query
@@ -29,7 +29,7 @@ async function getGourmetProducts({ page, search, sort = 'latest' }: GetGourmetP
     }
 
     // Show only new arrivals (isNew flag or newest products)
-    let filtered = (allProducts || []).filter(p => p.is_new === true)
+    let filtered = (allProducts || []).filter(p => (p as any).is_new === true)
 
     // Apply search filter
     if (search) {
