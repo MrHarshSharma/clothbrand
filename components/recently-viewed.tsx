@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Product } from '@/data/products'
 import ProductCard from '@/components/product-card'
 
-const STORAGE_KEY = 'shivshakti_recently_viewed'
+const STORAGE_KEY = 'clothingbrand_recently_viewed'
 
 interface ViewedItem {
     productId: string

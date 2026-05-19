@@ -7,30 +7,30 @@ import type { Metadata } from 'next'
 export const revalidate = 300
 
 export const metadata: Metadata = {
-  title: 'Shivshakti | Boutique Clothing & Ethnic Wear',
-  description: 'Discover handpicked ethnic and contemporary clothing at Shivshakti. Premium boutique fashion from Nagpur, crafted with tradition and style.',
-  keywords: ['boutique clothing', 'ethnic wear', 'Indian fashion', 'kurta', 'sarees', 'Nagpur', 'Maharashtra fashion', 'women fashion', 'men fashion', 'Shivshakti'],
+  title: 'ClothingBrand | Shop Ethnic & Contemporary Fashion Online',
+  description: 'Shop the latest ethnic wear, western styles, and fusion fashion at ClothingBrand. Handpicked clothing for women and men — new arrivals every week.',
+  keywords: ['clothing brand', 'ethnic wear', 'boutique fashion', 'Indian fashion', 'women clothing', 'men clothing', 'kurta', 'sarees', 'western wear', 'online fashion store'],
   openGraph: {
-    title: 'Shivshakti | Boutique Fashion',
-    description: 'Handpicked ethnic and contemporary clothing from Nagpur, Maharashtra.',
-    url: 'https://shivshakti.vercel.app',
-    siteName: 'Shivshakti',
+    title: 'ClothingBrand | Ethnic & Contemporary Fashion',
+    description: 'Handpicked ethnic and contemporary clothing for every occasion. Shop new arrivals every week.',
+    url: 'https://clothingbrand.vercel.app',
+    siteName: 'ClothingBrand',
     locale: 'en_IN',
     type: 'website',
     images: [
       {
-        url: '/hero-hamper.png',
+        url: '/hero-image.png',
         width: 1200,
         height: 630,
-        alt: 'Shivshakti Boutique Clothing',
+        alt: 'ClothingBrand — Shop Ethnic & Contemporary Fashion',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shivshakti | Boutique Fashion',
-    description: 'Premium ethnic and contemporary clothing from Nagpur.',
-    images: ['/hero-hamper.png'],
+    title: 'ClothingBrand | Ethnic & Contemporary Fashion',
+    description: 'Shop the latest ethnic and contemporary styles. New arrivals every week.',
+    images: ['/hero-image.png'],
   },
 }
 
@@ -55,19 +55,19 @@ export default async function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Shivshakti Boutique',
-    url: 'https://shivshakti.vercel.app',
-    logo: 'https://shivshakti.vercel.app/icon.png',
-    description: 'Handpicked ethnic and contemporary clothing from Nagpur, Maharashtra.',
+    name: 'ClothingBrand',
+    url: 'https://clothingbrand.vercel.app',
+    logo: 'https://clothingbrand.vercel.app/icon.png',
+    description: 'Shop the latest ethnic and contemporary fashion online. New arrivals every week.',
     sameAs: [
-      'https://instagram.com/shivshakti',
-      'https://facebook.com/shivshakti',
+      'https://instagram.com/clothingbrand',
+      'https://facebook.com/clothingbrand',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '9890379728',
+      telephone: '9665654326',
       contactType: 'customer service',
-      email: 'shivshaktiprovision18@gmail.com',
+      email: 'support@clothingbrand.com',
     },
   }
 

@@ -18,7 +18,7 @@ export default function Footer() {
                             <div className="relative h-20 w-20">
                                 <Image
                                     src="/logo.png"
-                                    alt="Shivshakti"
+                                    alt="ClothingBrand"
                                     fill
                                     className="object-contain"
                                 />
@@ -29,7 +29,7 @@ export default function Footer() {
                         </p>
                         <div className="flex items-center gap-3">
                             <a
-                                href="https://www.instagram.com/shiv_shakti_provision"
+                                href="https://www.instagram.com/clothingbrand"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-9 h-9 rounded-full bg-white border border-[#EBEBEB] flex items-center justify-center text-[#717171] hover:text-[#B8975A] hover:border-[#B8975A] transition-colors"
@@ -88,20 +88,20 @@ export default function Footer() {
                         <ul className="space-y-3">
                             <li>
                                 <a
-                                    href="mailto:shivshaktiprovision18@gmail.com"
+                                    href="mailto:support@clothingbrand.com"
                                     className="flex items-start gap-3 text-sm text-[#717171] hover:text-[#B8975A] transition-colors"
                                 >
                                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                                    shivshaktiprovision18@gmail.com
+                                    support@clothingbrand.com
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="tel:+919890379728"
+                                    href="tel:+919665654326"
                                     className="flex items-center gap-3 text-sm text-[#717171] hover:text-[#B8975A] transition-colors"
                                 >
                                     <Phone className="w-4 h-4 flex-shrink-0" />
-                                    +91 98903 79728
+                                    +91 96656 54326
                                 </a>
                             </li>
                             <li>
@@ -117,7 +117,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="py-4 border-t border-[#EBEBEB] flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-[#717171]">
-                        © {currentYear} Shivshakti. All rights reserved.
+                        © {currentYear} ClothingBrand. All rights reserved.
                     </p>
                     <div className="flex items-center gap-4">
                         <span className="text-xs text-[#717171]">We accept:</span>

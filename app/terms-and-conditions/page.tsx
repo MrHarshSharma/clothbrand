@@ -28,8 +28,8 @@ export default function TermsPage() {
                             <FileText className="h-6 w-6 text-saffron" />
                             <h2 className="font-cormorant text-2xl text-[#2D1B1B]">Introduction</h2>
                         </div>
-                        <p>Welcome to Shivshakti. These terms and conditions outline the rules and regulations for the use of our website and the purchase of our heritage products.</p>
-                        <p>By accessing this website and placing an order, we assume you accept these terms and conditions. Do not continue to use Shivshakti if you do not agree to all of the terms and conditions stated on this page.</p>
+                        <p>Welcome to ClothingBrand. These terms and conditions outline the rules and regulations for the use of our website and the purchase of our heritage products.</p>
+                        <p>By accessing this website and placing an order, we assume you accept these terms and conditions. Do not continue to use ClothingBrand if you do not agree to all of the terms and conditions stated on this page.</p>
                     </section>
 
                     <section className="space-y-4">
@@ -37,7 +37,7 @@ export default function TermsPage() {
                             <Scale className="h-6 w-6 text-saffron" />
                             <h2 className="font-cormorant text-2xl text-[#2D1B1B]">Intellectual Property Rights</h2>
                         </div>
-                        <p>Unless otherwise stated, Shivshakti and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved.</p>
+                        <p>Unless otherwise stated, ClothingBrand and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved.</p>
                         <p>You must not:</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>Republish material from our website</li>

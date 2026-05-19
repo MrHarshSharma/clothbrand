@@ -53,10 +53,10 @@ export async function sendOrderReceivedEmail(data: OrderEmailData): Promise<bool
             message_html: messageHtml, // Send the rendered HTML
             orders: data.orders, // Pass the array of orders for {{#orders}} loop
             cost: data.cost, // Pass the cost object for {{cost.shipping}}, etc.
-            from_name: data.from_name || 'Shivshakti',
+            from_name: data.from_name || 'ClothingBrand',
             reply_to: data.reply_to || process.env.NEXT_PUBLIC_ADMIN_EMAIL || '',
             to_email: process.env.NEXT_PUBLIC_ADMIN_EMAIL || '', // Send to admin, not customer
-            subject: `Order Received #${data.order_id} - Shivshakti`
+            subject: `Order Received #${data.order_id} - ClothingBrand`
         }
 
         await emailjs.send(
@@ -117,8 +117,8 @@ export async function sendOrderAcceptedEmail(data: {
             order_id: data.order_id,
             message_html: messageHtml,
             to_email: data.email,
-            subject: `Order #${data.order_id} Accepted - Shivshakti`,
-            from_name: 'Shivshakti',
+            subject: `Order #${data.order_id} Accepted - ClothingBrand`,
+            from_name: 'ClothingBrand',
             reply_to: process.env.NEXT_PUBLIC_ADMIN_EMAIL || ''
         }
 
@@ -177,8 +177,8 @@ export async function sendOrderShippedEmail(data: {
             order_id: data.order_id,
             message_html: messageHtml,
             to_email: data.email,
-            subject: `Order #${data.order_id} Shipped - Tracking ID: ${data.tracking_id} - Shivshakti`,
-            from_name: 'Shivshakti',
+            subject: `Order #${data.order_id} Shipped - Tracking ID: ${data.tracking_id} - ClothingBrand`,
+            from_name: 'ClothingBrand',
             reply_to: process.env.NEXT_PUBLIC_ADMIN_EMAIL || ''
         }
 
@@ -235,8 +235,8 @@ export async function sendOrderDeliveredEmail(data: {
             order_id: data.order_id,
             message_html: messageHtml,
             to_email: data.email,
-            subject: `Order #${data.order_id} Delivered - Shivshakti`,
-            from_name: 'Shivshakti',
+            subject: `Order #${data.order_id} Delivered - ClothingBrand`,
+            from_name: 'ClothingBrand',
             reply_to: process.env.NEXT_PUBLIC_ADMIN_EMAIL || ''
         }
 
@@ -291,8 +291,8 @@ export async function sendCustomerCancellationEmail(data: {
             order_id: data.order_id,
             message_html: messageHtml,
             to_email: data.email,
-            subject: `Order #${data.order_id} Cancelled - Shivshakti`,
-            from_name: 'Shivshakti',
+            subject: `Order #${data.order_id} Cancelled - ClothingBrand`,
+            from_name: 'ClothingBrand',
             reply_to: process.env.NEXT_PUBLIC_ADMIN_EMAIL || ''
         }
 

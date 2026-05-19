@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingBag, User, Menu, X, ChevronDown, Search, Home, Package, Info, Mail, ClipboardList, LayoutDashboard, Tag } from 'lucide-react'
+import { ShoppingBag, User, Menu, X, Search, Home, Package, Info, Mail, ClipboardList, LayoutDashboard } from 'lucide-react'
 import { useCart } from '@/context/cart-context'
 import { useAuth } from '@/context/auth-context'
 import { useState, useEffect, useRef, useCallback } from 'react'
@@ -33,10 +33,8 @@ export default function Navbar() {
     const [searchCount, setSearchCount] = useState(0)
     const [showSearchDropdown, setShowSearchDropdown] = useState(false)
     const [isSearching, setIsSearching] = useState(false)
-    const [showShopDropdown, setShowShopDropdown] = useState(false)
     const searchRef = useRef<HTMLDivElement>(null)
     const mobileSearchRef = useRef<HTMLDivElement>(null)
-    const shopDropdownRef = useRef<HTMLDivElement>(null)
     const pathname = usePathname()
     const router = useRouter()
     const searchParams = useSearchParams()
@@ -54,14 +52,11 @@ export default function Navbar() {
         }
     }, [pathname, searchParams])
 
-    // Close dropdowns when clicking outside
+    // Close search dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
                 setShowSearchDropdown(false)
-            }
-            if (shopDropdownRef.current && !shopDropdownRef.current.contains(event.target as Node)) {
-                setShowShopDropdown(false)
             }
         }
         document.addEventListener('mousedown', handleClickOutside)
@@ -142,22 +137,6 @@ export default function Navbar() {
         { name: 'About Us', href: '/about', icon: Info },
         { name: 'Contact Us', href: '/contact', icon: Mail },
     ]
-
-    const [categories, setCategories] = useState<{ id: number; category: string; position: number }[]>([])
-
-    useEffect(() => {
-        fetch('/api/categories')
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) setCategories(data.categories)
-            })
-            .catch(() => { })
-    }, [])
-
-    const shopDropdownItems = categories.map(cat => ({
-        name: cat.category,
-        href: `/products?category=${encodeURIComponent(cat.category)}`,
-    }))
 
     return (
         <>
@@ -300,7 +279,7 @@ export default function Navbar() {
                             <div className="relative h-20 w-30 md:h-24 md:w-30">
                                 <Image
                                     src="/logo.png"
-                                    alt="Heart and Hampers"
+                                    alt="ClothingBrand"
                                     fill
                                     className="object-contain"
                                     priority
@@ -430,53 +409,17 @@ export default function Navbar() {
                             HOME
                         </Link>
 
-                        {/* Shop Dropdown */}
-                        <div
-                            ref={shopDropdownRef}
-                            className="relative"
-                            onMouseEnter={() => setShowShopDropdown(true)}
-                            onMouseLeave={() => setShowShopDropdown(false)}
+                        {/* Shop Link */}
+                        <Link
+                            href="/products"
+                            className={`flex items-center gap-2 text-sm font-medium transition-colors ${pathname === '/products'
+                                ? 'text-white'
+                                : 'text-white/80 hover:text-white'
+                                }`}
                         >
-                            <button
-                                className={`flex items-center gap-2 text-sm font-medium transition-colors ${pathname === '/products'
-                                        ? 'text-white'
-                                        : 'text-white/80 hover:text-white'
-                                    }`}
-                            >
-                                <Package className="w-4 h-4" />
-                                SHOP
-                                <ChevronDown className={`w-4 h-4 transition-transform ${showShopDropdown ? 'rotate-180' : ''}`} />
-                            </button>
-
-                            <AnimatePresence>
-                                {showShopDropdown && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -10 }}
-                                        transition={{ duration: 0.15 }}
-                                        className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-[60]"
-                                    >
-                                        <div className="bg-white rounded-lg shadow-xl border border-[#EBEBEB] py-2">
-                                            {shopDropdownItems.map((item) => (
-                                                <Link
-                                                    key={item.name}
-                                                    href={item.href}
-                                                    className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors ${pathname + '?' + searchParams.toString() === item.href || pathname === item.href
-                                                            ? 'text-[#B8975A] bg-[#F7F4F0]'
-                                                            : 'text-[#4A4A4A] hover:bg-[#F8F8F8] hover:text-[#B8975A]'
-                                                        }`}
-                                                >
-                                                    <Tag className="w-4 h-4" />
-                                                    {item.name}
-                                                </Link>
-                                            )
-                                            )}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
+                            <Package className="w-4 h-4" />
+                            SHOP
+                        </Link>
 
                         {/* Other Nav Links */}
                         {navLinks.filter(link => link.name !== 'Home').map((link) => {
@@ -544,7 +487,7 @@ export default function Navbar() {
                             <div className="flex items-center justify-between p-4 border-b border-[#EBEBEB]">
                                 <Link href="/" onClick={() => setIsMenuOpen(false)}>
                                     <div className="relative h-12 w-12">
-                                        <Image src="/logo.png" alt="Heart and Hampers" fill className="object-contain" />
+                                        <Image src="/logo.png" alt="ClothingBrand" fill className="object-contain" />
                                     </div>
                                 </Link>
                                 <button
@@ -670,25 +613,18 @@ export default function Navbar() {
                                     Home
                                 </Link>
 
-                                {/* Shop Section */}
-                                <div className="px-4 py-2 text-xs font-semibold text-[#999] uppercase tracking-wider">
+                                {/* Shop Link */}
+                                <Link
+                                    href="/products"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className={`flex items-center gap-3 px-4 py-3 text-sm font-medium transition-colors ${pathname === '/products'
+                                        ? 'text-[#B8975A] bg-[#F7F4F0]'
+                                        : 'text-[#4A4A4A] hover:bg-[#F8F8F8]'
+                                        }`}
+                                >
+                                    <Package className="w-5 h-5" />
                                     Shop
-                                </div>
-                                {shopDropdownItems.map((item) => (
-                                    <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className={`flex items-center gap-3 px-4 py-3 pl-6 text-sm font-medium transition-colors ${pathname === item.href
-                                            ? 'text-[#B8975A] bg-[#F7F4F0]'
-                                            : 'text-[#4A4A4A] hover:bg-[#F8F8F8]'
-                                            }`}
-                                    >
-                                        <Tag className="w-5 h-5" />
-                                        {item.name}
-                                    </Link>
-                                )
-                                )}
+                                </Link>
 
                                 {/* Other Nav Links */}
                                 {navLinks.filter(link => link.name !== 'Home').map((link) => {

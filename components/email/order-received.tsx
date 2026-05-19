@@ -292,7 +292,7 @@ export const OrderReceivedEmail: React.FC<OrderReceivedEmailProps> = ({
                         lineHeight: '1.5',
                         margin: '0 0 10px',
                     }}>
-                        &copy; {new Date().getFullYear()} Shivshakti Provision. All rights reserved.
+                        &copy; {new Date().getFullYear()} ClothingBrand Provision. All rights reserved.
                     </p>
                     <p style={{
                         fontSize: '12px',

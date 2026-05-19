@@ -92,7 +92,7 @@ export default function AboutPage() {
                             <div className="aspect-square rounded-2xl overflow-hidden shadow-lg bg-white flex items-center justify-center p-4">
                                 <Image
                                     src="/logo.png"
-                                    alt="Shivshakti Boutique"
+                                    alt="ClothingBrand Boutique"
                                     fill
                                     className="object-contain p-4"
                                 />
@@ -109,17 +109,17 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">The Shivshakti Journey</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">The ClothingBrand Journey</h2>
                             <div className="w-16 h-1 bg-[#B8975A] rounded-full" />
                             <div className="text-[#4A4A4A] space-y-4 leading-relaxed">
                                 <p>
-                                    Shivshakti was born in Nagpur in 1986 — a name built on trust, quality, and a genuine love for the people we serve. Over nearly four decades, we have woven ourselves into the fabric of this city, earning the loyalty of families across generations.
+                                    ClothingBrand was born in Nagpur in 1986 — a name built on trust, quality, and a genuine love for the people we serve. Over nearly four decades, we have woven ourselves into the fabric of this city, earning the loyalty of families across generations.
                                 </p>
                                 <p>
                                     In 2015, we brought that same passion into the world of boutique fashion. What began as a small curated collection soon grew into a full-fledged clothing boutique — stocking handpicked ethnic wear, contemporary styles, and everything in between, sourced directly from skilled artisans and weavers across India.
                                 </p>
                                 <p>
-                                    Today, Shivshakti is more than a store. It is a place where tradition meets style, where every kurta, saree, and outfit tells a story. We believe clothing should feel as good as it looks — and we curate every piece with that belief at heart.
+                                    Today, ClothingBrand is more than a store. It is a place where tradition meets style, where every kurta, saree, and outfit tells a story. We believe clothing should feel as good as it looks — and we curate every piece with that belief at heart.
                                 </p>
                             </div>
                         </motion.div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">Why Shop at Shivshakti?</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">Why Shop at ClothingBrand?</h2>
                             <p className="text-[#4A4A4A] mb-8 leading-relaxed">
                                 We are not just a clothing store — we are a boutique built on four decades of trust. Here is what sets us apart from the rest.
                             </p>
@@ -244,7 +244,7 @@ export default function AboutPage() {
                         >
                             <Image
                                 src="/logo.png"
-                                alt="Shivshakti Boutique Collection"
+                                alt="ClothingBrand Boutique Collection"
                                 fill
                                 className="object-contain p-4"
                             />
@@ -265,7 +265,7 @@ export default function AboutPage() {
                             <Sparkles className="h-10 w-10 text-[#B8975A] mx-auto mb-6" />
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Dressed in Excellence</h2>
                             <p className="text-white/70 text-lg mb-8 leading-relaxed">
-                                Thoughtfully curated, beautifully crafted, and defined by uncompromising quality in every stitch. Find your style at Shivshakti.
+                                Thoughtfully curated, beautifully crafted, and defined by uncompromising quality in every stitch. Find your style at ClothingBrand.
                             </p>
                             <Link
                                 href="/products"

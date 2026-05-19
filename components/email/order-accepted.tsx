@@ -113,7 +113,7 @@ export const OrderAcceptedEmail: React.FC<OrderAcceptedEmailProps> = ({
                         color: '#4A3737',
                         margin: '20px 0 0',
                     }}>
-                        We will notify you again once your order is out for delivery. Thank you for choosing Shivshakti.
+                        We will notify you again once your order is out for delivery. Thank you for choosing ClothingBrand.
                     </p>
 
                     {/* Customer Details */}
@@ -236,7 +236,7 @@ export const OrderAcceptedEmail: React.FC<OrderAcceptedEmailProps> = ({
                         lineHeight: '1.5',
                         margin: '0 0 10px',
                     }}>
-                        &copy; {new Date().getFullYear()} Shivshakti Provision. All rights reserved.
+                        &copy; {new Date().getFullYear()} ClothingBrand Provision. All rights reserved.
                     </p>
                     <p style={{
                         fontSize: '12px',

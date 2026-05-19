@@ -28,7 +28,7 @@ export default function ShippingPolicyPage() {
                             <Truck className="h-6 w-6 text-saffron" />
                             <h2 className="font-cormorant text-2xl text-[#2D1B1B]">Domestic Shipping (India)</h2>
                         </div>
-                        <p>At Shivshakti, we understand the importance of receiving your heritage collections safely and promptly.</p>
+                        <p>At ClothingBrand, we understand the importance of receiving your heritage collections safely and promptly.</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li><strong>Standard Delivery:</strong> 5-7 business days.</li>
                             <li><strong>Express Delivery:</strong> 2-3 business days (available at extra cost in select cities).</li>

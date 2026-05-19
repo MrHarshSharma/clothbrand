@@ -64,7 +64,7 @@ export default function CartDrawer() {
     // Load customer data from localStorage on mount and when user changes
     useEffect(() => {
         if (user) {
-            const savedUserData = localStorage.getItem(`shivshakti_customer_${user.email}`)
+            const savedUserData = localStorage.getItem(`clothingbrand_customer_${user.email}`)
             if (savedUserData) {
                 try {
                     const parsedData = JSON.parse(savedUserData)
@@ -80,7 +80,7 @@ export default function CartDrawer() {
                 name: user.user_metadata.full_name || ''
             }))
         } else {
-            const globalData = localStorage.getItem('shivshakti_customer_data')
+            const globalData = localStorage.getItem('clothingbrand_customer_data')
             if (globalData) {
                 try {
                     setCustomerData(JSON.parse(globalData))
@@ -226,8 +226,8 @@ export default function CartDrawer() {
                     address: 'Store Pickup',
                 }).catch(err => console.error('Email sending failed:', err))
 
-                localStorage.setItem('shivshakti_customer_data', JSON.stringify(customerData))
-                localStorage.setItem(`shivshakti_customer_${user.email}`, JSON.stringify(customerData))
+                localStorage.setItem('clothingbrand_customer_data', JSON.stringify(customerData))
+                localStorage.setItem(`clothingbrand_customer_${user.email}`, JSON.stringify(customerData))
                 window.dispatchEvent(new Event('customerDataUpdated'))
 
                 setIsOrderPlaced(true)
@@ -275,7 +275,7 @@ export default function CartDrawer() {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
                 amount: orderData.amount,
                 currency: orderData.currency,
-                name: 'Shivshakti',
+                name: 'ClothingBrand',
                 description: 'Order Payment',
                 order_id: orderData.orderId,
                 prefill: {
@@ -353,8 +353,8 @@ export default function CartDrawer() {
                             address: customerData.address,
                         }).catch(err => console.error('Email sending failed:', err))
 
-                        localStorage.setItem('shivshakti_customer_data', JSON.stringify(customerData))
-                        localStorage.setItem(`shivshakti_customer_${user.email}`, JSON.stringify(customerData))
+                        localStorage.setItem('clothingbrand_customer_data', JSON.stringify(customerData))
+                        localStorage.setItem(`clothingbrand_customer_${user.email}`, JSON.stringify(customerData))
                         window.dispatchEvent(new Event('customerDataUpdated'))
 
                         setIsOrderPlaced(true)
@@ -444,7 +444,7 @@ export default function CartDrawer() {
                                     </motion.div>
                                     <div>
                                         <h3 className="text-xl font-semibold text-[#1A1A1A] mb-1">Order Placed!</h3>
-                                        <p className="text-[#717171]">Thank you for shopping with Shivshakti.</p>
+                                        <p className="text-[#717171]">Thank you for shopping with ClothingBrand.</p>
                                     </div>
                                 </div>
                             ) : showCustomerForm ? (

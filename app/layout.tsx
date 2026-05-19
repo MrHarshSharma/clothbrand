@@ -19,8 +19,8 @@ const cormorant = Cormorant_Garamond({
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: 'Shivshakti | Boutique Fashion',
-  description: 'Handpicked ethnic and contemporary clothing from Nagpur.',
+  title: 'ClothingBrand | Shop Fashion Online',
+  description: 'Shop ethnic wear, western styles, and fusion fashion at ClothingBrand. New arrivals every week.',
   icons: {
     icon: '/icon.png',
     apple: '/icon.png',

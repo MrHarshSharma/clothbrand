@@ -141,7 +141,7 @@ export const OrderShippedEmail: React.FC<OrderShippedEmailProps> = ({
                         color: '#4A3737',
                         margin: '20px 0 0',
                     }}>
-                        You can use the tracking ID above to track your shipment. We will notify you once your order is delivered. Thank you for choosing Shivshakti!
+                        You can use the tracking ID above to track your shipment. We will notify you once your order is delivered. Thank you for choosing ClothingBrand!
                     </p>
 
                     {/* Customer Details */}
@@ -264,7 +264,7 @@ export const OrderShippedEmail: React.FC<OrderShippedEmailProps> = ({
                         lineHeight: '1.5',
                         margin: '0 0 10px',
                     }}>
-                        &copy; {new Date().getFullYear()} Shivshakti Provision. All rights reserved.
+                        &copy; {new Date().getFullYear()} ClothingBrand Provision. All rights reserved.
                     </p>
                     <p style={{
                         fontSize: '12px',

@@ -37,7 +37,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     // Load cart from local storage on mount
     useEffect(() => {
-        const storedCart = localStorage.getItem('shivshakti_cart');
+        const storedCart = localStorage.getItem('clothingbrand_cart');
         if (storedCart) {
             setItems(JSON.parse(storedCart));
         }
@@ -47,7 +47,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     // Save cart to local storage whenever it changes
     useEffect(() => {
         if (isInitialized) {
-            localStorage.setItem('shivshakti_cart', JSON.stringify(items));
+            localStorage.setItem('clothingbrand_cart', JSON.stringify(items));
         }
     }, [items, isInitialized]);
 

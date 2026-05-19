@@ -56,10 +56,10 @@ export default function ContactClient() {
                                 </div>
                                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Email Us</h3>
                                 <a
-                                    href="mailto:shivshaktiprovision18@gmail.com"
+                                    href="mailto:support@clothingbrand.com"
                                     className="text-[#B8975A] hover:underline font-medium"
                                 >
-                                    shivshaktiprovision18@gmail.com
+                                    support@clothingbrand.com
                                 </a>
                                 <p className="text-[#717171] mt-2 text-sm">We'll respond within 24 hours</p>
                             </motion.div>
@@ -76,7 +76,7 @@ export default function ContactClient() {
                                 </div>
                                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Call Us</h3>
                                 <a
-                                    href="tel:9890379728"
+                                    href="tel:9665654326"
                                     className="text-[#B8975A] hover:underline font-medium text-lg"
                                 >
                                     +91 98903 79728
@@ -126,7 +126,7 @@ export default function ContactClient() {
                                     For bulk orders, corporate gifting, or special customization requests, reach out to us directly. We'd love to help create something special for you.
                                 </p>
                                 <a
-                                    href="https://wa.me/919890379728"
+                                    href="https://wa.me/919665654326"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-3 px-8 py-4 bg-[#25D366] text-white font-semibold rounded-xl hover:bg-[#1EBE5D] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
