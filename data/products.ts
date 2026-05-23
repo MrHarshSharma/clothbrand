@@ -32,8 +32,8 @@ export const products: Product[] = [
         price: 599,
         categories: ['Skincare'],
         images: [
-            'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?fm=jpg&q=60&w=800',
+            '/productimages/vitaminc-1.jpg',
+            '/productimages/vitaminc-2.jpg',
         ],
         isNew: true,
     },
@@ -49,8 +49,7 @@ export const products: Product[] = [
         price: 449,
         categories: ['Skincare'],
         images: [
-            'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1556228578-8c89e6adf883?fm=jpg&q=60&w=800',
+            '/productimages/mositurizer.jpg',
         ],
     },
     {
@@ -65,8 +64,7 @@ export const products: Product[] = [
         price: 299,
         categories: ['Skincare'],
         images: [
-            'https://images.unsplash.com/photo-1556228578-8c89e6adf883?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?fm=jpg&q=60&w=800',
+            '/productimages/facewash.jpg',
         ],
         isNew: true,
     },
@@ -84,8 +82,8 @@ export const products: Product[] = [
         price: null as unknown as number,
         categories: ['Makeup'],
         images: [
-            'https://images.unsplash.com/photo-1604654894610-df63bc536371?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1503236823255-94609f598e71?fm=jpg&q=60&w=800',
+            '/productimages/foundation-1.jpg',
+            '/productimages/foundation-2.jpg',
         ],
         isNew: true,
         product_type: 'variable',
@@ -108,8 +106,7 @@ export const products: Product[] = [
         price: 799,
         categories: ['Makeup'],
         images: [
-            'https://images.unsplash.com/photo-1596462502278-27bfdc403348?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?fm=jpg&q=60&w=800',
+            '/productimages/eyeshadow.jpg',
         ],
     },
     {
@@ -124,8 +121,7 @@ export const products: Product[] = [
         price: 199,
         categories: ['Makeup'],
         images: [
-            'https://images.unsplash.com/photo-1583241475880-083f84372725?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?fm=jpg&q=60&w=800',
+            '/productimages/eyeliner.jpg',
         ],
     },
 
@@ -142,8 +138,7 @@ export const products: Product[] = [
         price: null as unknown as number,
         categories: ['Lip Color'],
         images: [
-            'https://images.unsplash.com/photo-1631214499066-c0e3f1f2a8d5?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1526045612212-70caf35c14df?fm=jpg&q=60&w=800',
+            '/productimages/lipstick.jpg',
         ],
         isNew: true,
         product_type: 'variable',
@@ -166,8 +161,8 @@ export const products: Product[] = [
         price: 249,
         categories: ['Lip Color'],
         images: [
-            'https://images.unsplash.com/photo-1586495777744-4e6232bf2a0b?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1631214499066-c0e3f1f2a8d5?fm=jpg&q=60&w=800',
+            '/productimages/liptint-1.jpg',
+            '/productimages/liptint-2.jpg',
         ],
     },
 
@@ -184,8 +179,8 @@ export const products: Product[] = [
         price: null as unknown as number,
         categories: ['Everyday'],
         images: [
-            'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?fm=jpg&q=60&w=800',
+            '/productimages/bbcream-1.jpg',
+            '/productimages/bbcream-2.jpg',
         ],
         product_type: 'variable',
         variations: [
@@ -206,8 +201,7 @@ export const products: Product[] = [
         price: 349,
         categories: ['Everyday'],
         images: [
-            'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?fm=jpg&q=60&w=800',
-            'https://images.unsplash.com/photo-1571781565036-d3f759be73e4?fm=jpg&q=60&w=800',
+            '/productimages/powder.jpg',
         ],
         isNew: true,
     },

@@ -1,34 +1,32 @@
-import { createServiceRoleClient } from '@/utils/supabase/service-role'
+// import { createServiceRoleClient } from '@/utils/supabase/service-role'
+import { products as localProducts } from '@/data/products'
 import ProductsClient from './products-client'
 
-// Cache this page and revalidate every 60 seconds
-export const revalidate = 60
+// export const revalidate = 60
 
 const PRODUCTS_PER_PAGE = 12
 
-interface GetProductsParams {
-    page: number
-    category?: string
-    search?: string
-    sort?: string
-    minPrice?: number
-    maxPrice?: number
+interface PageProps {
+    searchParams: Promise<{ page?: string; category?: string; search?: string; sort?: string; minPrice?: string; maxPrice?: string }>
 }
 
-async function getProducts({ page, category, search, sort, minPrice, maxPrice }: GetProductsParams) {
-    const supabase = createServiceRoleClient()
-
-    const { data: allProducts, error } = await supabase
-        .from('product')
-        .select('id, name, description, price, categories, images, product_type, variations, created_at')
-        .order('created_at', { ascending: false })
-
-    if (error) {
-        console.error('Error fetching products:', error)
-        return { products: [], total: 0, totalPages: 0 }
+function getEffectivePrice(p: (typeof localProducts)[number]): number {
+    if (p.product_type === 'variable' && p.variations?.length) {
+        return Math.min(...p.variations.map(v => v.price))
     }
+    return p.price ?? 0
+}
 
-    let filtered = allProducts || []
+export default async function ProductsPage({ searchParams }: PageProps) {
+    const params = await searchParams
+    const page = Math.max(1, parseInt(params.page || '1', 10))
+    const category = params.category || 'All'
+    const search = params.search || ''
+    const sort = params.sort || 'newest'
+    const minPrice = params.minPrice ? parseInt(params.minPrice) : undefined
+    const maxPrice = params.maxPrice ? parseInt(params.maxPrice) : undefined
+
+    let filtered = [...localProducts]
 
     // Search filter
     if (search) {
@@ -43,52 +41,40 @@ async function getProducts({ page, category, search, sort, minPrice, maxPrice }:
     if (category && category !== 'All') {
         const categoryLower = category.toLowerCase()
         filtered = filtered.filter(p =>
-            p.categories?.some((c: string) => c.toLowerCase() === categoryLower)
+            p.categories?.some(c => c.toLowerCase() === categoryLower)
         )
     }
 
-    // Price filter
+    // Price filter (uses effective price for variable products)
     if (minPrice !== undefined) {
-        filtered = filtered.filter(p => p.price >= minPrice)
+        filtered = filtered.filter(p => getEffectivePrice(p) >= minPrice)
     }
     if (maxPrice !== undefined) {
-        filtered = filtered.filter(p => p.price <= maxPrice)
+        filtered = filtered.filter(p => getEffectivePrice(p) <= maxPrice)
     }
 
     // Sort
     if (sort === 'price_asc') {
-        filtered = [...filtered].sort((a, b) => a.price - b.price)
+        filtered = [...filtered].sort((a, b) => getEffectivePrice(a) - getEffectivePrice(b))
     } else if (sort === 'price_desc') {
-        filtered = [...filtered].sort((a, b) => b.price - a.price)
+        filtered = [...filtered].sort((a, b) => getEffectivePrice(b) - getEffectivePrice(a))
     }
-    // 'newest' is already the default from .order('created_at', { ascending: false })
 
     const total = filtered.length
     const totalPages = Math.ceil(total / PRODUCTS_PER_PAGE)
     const from = (page - 1) * PRODUCTS_PER_PAGE
-    const products = filtered.slice(from, from + PRODUCTS_PER_PAGE)
+    const paginatedProducts = filtered.slice(from, from + PRODUCTS_PER_PAGE)
 
-    return { products, total, totalPages }
-}
+    // Derive unique categories from local products
+    const allCategories = Array.from(
+        new Set(localProducts.flatMap(p => p.categories))
+    ).sort()
 
-interface PageProps {
-    searchParams: Promise<{ page?: string; category?: string; search?: string; sort?: string; minPrice?: string; maxPrice?: string }>
-}
-
-export default async function ProductsPage({ searchParams }: PageProps) {
-    const params = await searchParams
-    const page = Math.max(1, parseInt(params.page || '1', 10))
-    const category = params.category || 'All'
-    const search = params.search || ''
-    const sort = params.sort || 'newest'
-    const minPrice = params.minPrice ? parseInt(params.minPrice) : undefined
-    const maxPrice = params.maxPrice ? parseInt(params.maxPrice) : undefined
-
-    const { products, total, totalPages } = await getProducts({ page, category, search, sort, minPrice, maxPrice })
+    // async function getProductsFromDB(...) { ... }
 
     return (
         <ProductsClient
-            products={products}
+            products={paginatedProducts}
             currentPage={page}
             totalPages={totalPages}
             totalProducts={total}
@@ -97,6 +83,7 @@ export default async function ProductsPage({ searchParams }: PageProps) {
             currentSort={sort}
             currentMinPrice={minPrice}
             currentMaxPrice={maxPrice}
+            initialCategories={allCategories}
         />
     )
 }

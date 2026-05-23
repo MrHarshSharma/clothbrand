@@ -17,6 +17,7 @@ interface ProductsClientProps {
     currentSort: string
     currentMinPrice?: number
     currentMaxPrice?: number
+    initialCategories?: string[]
 }
 
 const SORT_OPTIONS = [
@@ -35,24 +36,26 @@ export default function ProductsClient({
     currentSort,
     currentMinPrice,
     currentMaxPrice,
+    initialCategories = [],
 }: ProductsClientProps) {
     const router = useRouter()
-    const [categories, setCategories] = useState<string[]>(['All'])
+    const [categories, setCategories] = useState<string[]>(['All', ...initialCategories])
     const [showFilterDrawer, setShowFilterDrawer] = useState(false)
     const [localMinPrice, setLocalMinPrice] = useState(currentMinPrice?.toString() || '')
     const [localMaxPrice, setLocalMaxPrice] = useState(currentMaxPrice?.toString() || '')
     const [openSection, setOpenSection] = useState<string[]>(['sort', 'category', 'price'])
 
-    useEffect(() => {
-        fetch('/api/categories')
-            .then(res => res.json())
-            .then(data => {
-                if (data.success && data.categories) {
-                    setCategories(['All', ...data.categories.map((c: { category: string }) => c.category)])
-                }
-            })
-            .catch(() => { })
-    }, [])
+    // DB categories fetch — re-enable when switching back to DB
+    // useEffect(() => {
+    //     fetch('/api/categories')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.success && data.categories) {
+    //                 setCategories(['All', ...data.categories.map((c: { category: string }) => c.category)])
+    //             }
+    //         })
+    //         .catch(() => { })
+    // }, [])
 
     const buildUrl = (params: {
         page?: number
@@ -278,7 +281,7 @@ export default function ProductsClient({
                         <p className="text-[#4A4A4A] text-lg leading-relaxed">
                             {searchQuery
                                 ? `Showing results for "${searchQuery}"`
-                                : 'Explore our carefully curated boutique collection of ethnic and contemporary clothing, crafted for every occasion.'
+                                : 'Explore our full range of skincare, makeup, lip color, and everyday essentials — premium beauty at budget prices.'
                             }
                         </p>
                     </div>
