@@ -37,7 +37,7 @@ export const OrderCancelledEmail: React.FC<OrderCancelledEmailProps> = ({
                 }}>
                     {/* Logo */}
                     <img
-                        src={`${process.env.NEXT_PUBLIC_APP_URL}/logo.png`}
+                        src={`${process.env.NEXT_PUBLIC_APP_URL}/tp_logo.png`}
                         alt="ClothingBrand"
                         style={{
                             width: '80px',

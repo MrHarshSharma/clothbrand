@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   title: 'Budget Cosmetic | Premium Cosmetics & Skincare',
   description: 'Shop premium cosmetics, skincare, and beauty essentials at Budget Cosmetic. Cruelty-free, dermatologist-tested. New launches every week.',
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: '/tp_logo.png',
+    apple: '/tp_logo.png',
   }
 }
 

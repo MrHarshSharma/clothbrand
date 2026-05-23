@@ -91,7 +91,7 @@ export default function AboutPage() {
                         >
                             <div className="aspect-square rounded-2xl overflow-hidden shadow-lg bg-white flex items-center justify-center p-4">
                                 <Image
-                                    src="/logo.png"
+                                    src="/tp_logo.png"
                                     alt="Budget Cosmetic"
                                     fill
                                     className="object-contain p-4"
@@ -243,7 +243,7 @@ export default function AboutPage() {
                             className="relative aspect-[1/1] rounded-2xl overflow-hidden shadow-lg bg-white"
                         >
                             <Image
-                                src="/logo.png"
+                                src="/tp_logo.png"
                                 alt="Budget Cosmetic"
                                 fill
                                 className="object-contain p-4"

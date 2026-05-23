@@ -49,7 +49,7 @@ export default function ProductCard({ product }: { product: Product }) {
                         src={product.images?.[0] || '/placeholder-product.png'}
                         alt={product.name}
                         fill
-                        className={`object-contain transition-all duration-500 ${
+                        className={`object-cover transition-all duration-500 ${
                             hasSecondImage && isHovered
                                 ? 'opacity-0 scale-100'
                                 : 'opacity-100 group-hover:scale-105'
@@ -62,7 +62,7 @@ export default function ProductCard({ product }: { product: Product }) {
                             src={product.images[1]}
                             alt={product.name}
                             fill
-                            className={`object-contain transition-opacity duration-500 ${
+                            className={`object-cover transition-opacity duration-500 ${
                                 isHovered ? 'opacity-100' : 'opacity-0'
                             }`}
                         />

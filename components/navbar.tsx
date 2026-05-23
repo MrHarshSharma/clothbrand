@@ -278,7 +278,7 @@ export default function Navbar() {
                         <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0">
                             <div className="relative h-20 w-30 md:h-24 md:w-30">
                                 <Image
-                                    src="/logo.png"
+                                    src="/tp_logo.png"
                                     alt="Budget Cosmetic"
                                     fill
                                     className="object-contain"
@@ -487,7 +487,7 @@ export default function Navbar() {
                             <div className="flex items-center justify-between p-4 border-b border-[#EBEBEB]">
                                 <Link href="/" onClick={() => setIsMenuOpen(false)}>
                                     <div className="relative h-12 w-12">
-                                        <Image src="/logo.png" alt="Budget Cosmetic" fill className="object-contain" />
+                                        <Image src="/tp_logo.png" alt="Budget Cosmetic" fill className="object-contain" />
                                     </div>
                                 </Link>
                                 <button

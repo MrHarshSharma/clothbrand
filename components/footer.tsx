@@ -17,7 +17,7 @@ export default function Footer() {
                         <Link href="/" className="inline-block mb-4">
                             <div className="relative h-20 w-20">
                                 <Image
-                                    src="/logo.png"
+                                    src="/tp_logo.png"
                                     alt="Budget Cosmetic"
                                     fill
                                     className="object-contain"
