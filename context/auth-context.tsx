@@ -25,6 +25,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const supabase = createClient()
 
     const fetchUserRole = async (email: string) => {
+        if (!supabase) return
         try {
             const { data } = await supabase
                 .from('users')
@@ -38,6 +39,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     useEffect(() => {
+        if (!supabase) {
+            setLoading(false)
+            return
+        }
+
         // Check active sessions and sets the user
         const getSession = async () => {
             const { data: { session } } = await supabase.auth.getSession()
@@ -67,6 +73,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }, [supabase])
 
     const loginWithGoogle = async (nextPath?: string) => {
+        if (!supabase) return
         const origin = window.location.origin
         const redirectTo = nextPath
             ? `${origin}/auth/callback?next=${encodeURIComponent(nextPath)}`
@@ -82,6 +89,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     const logout = async () => {
+        if (!supabase) return
         const { error } = await supabase.auth.signOut()
         if (error) console.error('Error logging out:', error.message)
         if (window.location.pathname.startsWith('/admin')) {
