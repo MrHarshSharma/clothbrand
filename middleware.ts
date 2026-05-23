@@ -6,10 +6,15 @@ export async function middleware(request: NextRequest) {
     const { nextUrl } = request
     const response = await updateSession(request)
 
+    // Skip all Supabase checks when env vars are not configured
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        return response
+    }
+
     // Check if the logged-in user is blocked
     const supabaseCheck = createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        process.env.NEXT_PUBLIC_SUPABASE_URL,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
         {
             cookies: {
                 getAll() {
@@ -55,8 +60,8 @@ export async function middleware(request: NextRequest) {
 
     if (isAdminRoute || isAdminApi || isUserOrderRoute) {
         const supabase = createServerClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+            process.env.NEXT_PUBLIC_SUPABASE_URL,
+            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
             {
                 cookies: {
                     getAll() {
