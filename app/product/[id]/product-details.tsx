@@ -6,19 +6,11 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
     ChevronLeft, ShoppingBag, Minus, Plus, Check,
-    ChevronRight, ChevronDown, Truck, Shield, RotateCcw, X, Ruler
+    ChevronRight, ChevronDown, Truck, Shield, RotateCcw,
 } from 'lucide-react'
 import { useCart } from '@/context/cart-context'
 import { Product } from '@/data/products'
 
-const SIZE_CHART = [
-    { size: 'XS', bust: '32', waist: '26', hip: '36', length: '52' },
-    { size: 'S',  bust: '34', waist: '28', hip: '38', length: '53' },
-    { size: 'M',  bust: '36', waist: '30', hip: '40', length: '54' },
-    { size: 'L',  bust: '38', waist: '32', hip: '42', length: '55' },
-    { size: 'XL', bust: '40', waist: '34', hip: '44', length: '56' },
-    { size: 'XXL',bust: '42', waist: '36', hip: '46', length: '57' },
-]
 
 const slideVariants = {
     enter: (direction: number) => ({ x: direction > 0 ? 300 : -300, opacity: 0 }),
@@ -42,7 +34,6 @@ export default function ProductDetails({ product }: { product: Product }) {
     const [[page, direction], setPage] = useState([0, 0])
     const [isZooming, setIsZooming] = useState(false)
     const [zoomPosition, setZoomPosition] = useState({ x: 50, y: 50 })
-    const [showSizeGuide, setShowSizeGuide] = useState(false)
     const [openAccordion, setOpenAccordion] = useState<string[]>(['details'])
     const [showStickyCart, setShowStickyCart] = useState(false)
 
@@ -115,15 +106,15 @@ export default function ProductDetails({ product }: { product: Product }) {
     // Parse description JSON
     let description = product.description
     let details = ''
-    let care = ''
-    let fabric = ''
+    let ingredients = ''
+    let howToUse = ''
     try {
         const json = JSON.parse(product.description)
         if (typeof json === 'object' && json !== null) {
             description = json.productDescription || ''
             details = json.productDetails || ''
-            care = json.careInstructions || ''
-            fabric = json.fabric || json.material || ''
+            ingredients = json.ingredients || ''
+            howToUse = json.howToUse || ''
         }
     } catch {}
 
@@ -301,23 +292,16 @@ export default function ProductDetails({ product }: { product: Product }) {
                             <p className="text-[#4A4A4A] leading-relaxed mb-6 text-sm">{description}</p>
                         )}
 
-                        {/* Variation / Size Selector */}
+                        {/* Variation / Shade Selector */}
                         {product.product_type === 'variable' && product.variations?.length && (
                             <div className="mb-6">
                                 <div className="flex items-center justify-between mb-3">
                                     <h3 className="text-sm font-semibold text-[#1A1A1A]">
-                                        Select Size
+                                        Select Shade
                                         {selectedVariation && (
                                             <span className="ml-2 font-normal text-[#717171]">— {selectedVariation.name}</span>
                                         )}
                                     </h3>
-                                    <button
-                                        onClick={() => setShowSizeGuide(true)}
-                                        className="inline-flex items-center gap-1.5 text-xs font-medium text-[#717171] hover:text-[#B8975A] transition-colors"
-                                    >
-                                        <Ruler className="w-3.5 h-3.5" />
-                                        Size Guide
-                                    </button>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {product.variations.map((variation) => (
@@ -393,12 +377,12 @@ export default function ProductDetails({ product }: { product: Product }) {
                         <div className="border-t border-[#EBEBEB]">
                             {[
                                 { key: 'details', label: 'Product Details', content: details },
-                                { key: 'fabric', label: 'Fabric & Material', content: fabric },
-                                { key: 'care', label: 'Care Instructions', content: care },
+                                { key: 'ingredients', label: 'Key Ingredients', content: ingredients },
+                                { key: 'howToUse', label: 'How to Use', content: howToUse },
                                 {
                                     key: 'shipping',
                                     label: 'Shipping & Returns',
-                                    content: 'Free shipping on orders above ₹999. Standard delivery in 3–5 business days.\n\nReturns accepted within 7 days of delivery. Item must be unused, unwashed, and in original packaging with tags intact.',
+                                    content: 'Free shipping on orders above ₹999. Standard delivery in 3–5 business days.\n\nReturns accepted within 7 days of delivery. Product must be unused, unopened, and in original packaging.',
                                 },
                             ]
                                 .filter(item => item.content)
@@ -432,59 +416,6 @@ export default function ProductDetails({ product }: { product: Product }) {
                     </div>
                 </div>
             </div>
-
-            {/* ── Size Guide Modal ── */}
-            <AnimatePresence>
-                {showSizeGuide && (
-                    <>
-                        <motion.div
-                            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/50 z-[80]"
-                            onClick={() => setShowSizeGuide(false)}
-                        />
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.95 }}
-                            transition={{ duration: 0.2 }}
-                            className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[90] bg-white rounded-2xl shadow-2xl max-w-lg mx-auto overflow-hidden"
-                        >
-                            <div className="flex items-center justify-between px-6 py-4 border-b border-[#EBEBEB]">
-                                <h3 className="text-base font-semibold text-[#1A1A1A]">Size Guide</h3>
-                                <button onClick={() => setShowSizeGuide(false)} className="p-1.5 rounded-lg hover:bg-[#F8F8F8]">
-                                    <X className="w-5 h-5 text-[#4A4A4A]" />
-                                </button>
-                            </div>
-                            <div className="p-6 overflow-x-auto">
-                                <p className="text-xs text-[#717171] mb-4">All measurements are in inches. For the best fit, measure over your undergarments.</p>
-                                <table className="w-full text-sm border-collapse">
-                                    <thead>
-                                        <tr className="bg-[#F8F8F8]">
-                                            {['Size', 'Bust', 'Waist', 'Hip', 'Length'].map(h => (
-                                                <th key={h} className="px-4 py-2.5 text-left text-xs font-semibold text-[#1A1A1A] uppercase tracking-wide border border-[#EBEBEB]">
-                                                    {h}
-                                                </th>
-                                            ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {SIZE_CHART.map((row, i) => (
-                                            <tr key={row.size} className={i % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}>
-                                                <td className="px-4 py-2.5 font-semibold text-[#1A1A1A] border border-[#EBEBEB]">{row.size}</td>
-                                                <td className="px-4 py-2.5 text-[#4A4A4A] border border-[#EBEBEB]">{row.bust}</td>
-                                                <td className="px-4 py-2.5 text-[#4A4A4A] border border-[#EBEBEB]">{row.waist}</td>
-                                                <td className="px-4 py-2.5 text-[#4A4A4A] border border-[#EBEBEB]">{row.hip}</td>
-                                                <td className="px-4 py-2.5 text-[#4A4A4A] border border-[#EBEBEB]">{row.length}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                                <p className="text-xs text-[#717171] mt-4">* Sizes may vary slightly by style. When in doubt, size up.</p>
-                            </div>
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
 
             {/* ── Sticky Mobile Add to Cart ── */}
             <AnimatePresence>

@@ -17,7 +17,7 @@ export default function ContactClient() {
                     >
                         <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-4">Contact Us</h1>
                         <p className="text-[#4A4A4A] text-lg leading-relaxed">
-                            We're here to assist you with any inquiries regarding our premium collections or your orders.
+                            Have a question about a product, need skincare advice, or want to track your order? We&apos;re here to help.
                         </p>
                     </motion.div>
                 </div>
@@ -38,7 +38,7 @@ export default function ContactClient() {
                                 <div className="w-14 h-14 bg-[#F5F0EB] rounded-xl flex items-center justify-center mb-6 text-[#B8975A]">
                                     <MapPin className="h-7 w-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Visit Our Store</h3>
+                                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Visit Budget Cosmetic</h3>
                                 <p className="text-[#717171] leading-relaxed">
                                     362, Wanjari Complex, Dr Ambedkar Rd, Kamal Chowk, Gurunanakpura, Balabhaupeth, Nagpur, Maharashtra 440017
                                 </p>
@@ -56,12 +56,12 @@ export default function ContactClient() {
                                 </div>
                                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Email Us</h3>
                                 <a
-                                    href="mailto:support@clothingbrand.com"
+                                    href="mailto:budgetcosmetic@gmail.com"
                                     className="text-[#B8975A] hover:underline font-medium"
                                 >
-                                    support@clothingbrand.com
+                                    budgetcosmetic@gmail.com
                                 </a>
-                                <p className="text-[#717171] mt-2 text-sm">We'll respond within 24 hours</p>
+                                <p className="text-[#717171] mt-2 text-sm">We&apos;ll respond within 24 hours</p>
                             </motion.div>
 
                             {/* Phone Card */}
@@ -121,9 +121,9 @@ export default function ContactClient() {
 
                             <div className="relative z-10">
 
-                                <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-4">Need Custom Gifting Solutions?</h2>
+                                <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-4">Need Beauty Advice?</h2>
                                 <p className="text-[#4A4A4A] mb-6 max-w-xl mx-auto">
-                                    For bulk orders, corporate gifting, or special customization requests, reach out to us directly. We'd love to help create something special for you.
+                                    Not sure which product suits your skin type? Want help finding the right shade? Chat with us on WhatsApp — our beauty experts are ready to help.
                                 </p>
                                 <a
                                     href="https://wa.me/919665654326"

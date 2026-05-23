@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
-import { Heart, ShieldCheck, Users, Sparkles, ArrowRight, Award, Shirt, Clock } from 'lucide-react'
+import { Heart, ShieldCheck, Users, Sparkles, ArrowRight, Award, Droplets, Clock } from 'lucide-react'
 import { useRef, useEffect, useState } from 'react'
 
 // Animated Counter Component
@@ -66,13 +66,13 @@ export default function AboutPage() {
                             transition={{ duration: 0.6 }}
                         >
                             <span className="inline-block px-4 py-2 bg-white text-[#B8975A] text-sm font-medium rounded-full mb-6">
-                                Since 1986
+                                Beauty For Everyone
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-6 leading-tight">
-                                Our Heritage, <span className="text-[#B8975A]">Your Style</span>
+                                Glow Up With <span className="text-[#B8975A]">Budget Cosmetic</span>
                             </h1>
                             <p className="text-lg md:text-xl text-[#4A4A4A] leading-relaxed">
-                                Elevated style rooted in tradition. A refined expression of fashion and heritage — dressing generations since 1986.
+                                Premium quality cosmetics and skincare that don&apos;t break the bank. Because every skin tone deserves to shine.
                             </p>
                         </motion.div>
                     </div>
@@ -92,14 +92,14 @@ export default function AboutPage() {
                             <div className="aspect-square rounded-2xl overflow-hidden shadow-lg bg-white flex items-center justify-center p-4">
                                 <Image
                                     src="/logo.png"
-                                    alt="ClothingBrand Boutique"
+                                    alt="Budget Cosmetic"
                                     fill
                                     className="object-contain p-4"
                                 />
                             </div>
                             <div className="absolute -bottom-6 -right-6 bg-[#1A1A1A] text-white p-6 rounded-xl shadow-lg hidden md:block">
-                                <p className="text-3xl font-bold">38+</p>
-                                <p className="text-sm opacity-90">Years of Style</p>
+                                <p className="text-3xl font-bold">100%</p>
+                                <p className="text-sm opacity-90">Cruelty Free</p>
                             </div>
                         </motion.div>
 
@@ -109,17 +109,17 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                             className="space-y-6"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">The ClothingBrand Journey</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A]">The Budget Cosmetic Story</h2>
                             <div className="w-16 h-1 bg-[#B8975A] rounded-full" />
                             <div className="text-[#4A4A4A] space-y-4 leading-relaxed">
                                 <p>
-                                    ClothingBrand was born in Nagpur in 1986 — a name built on trust, quality, and a genuine love for the people we serve. Over nearly four decades, we have woven ourselves into the fabric of this city, earning the loyalty of families across generations.
+                                    Budget Cosmetic was born from a simple belief — that premium beauty should be accessible to everyone. We are based in Nagpur, India, and we set out to bridge the gap between luxury cosmetics and everyday affordability.
                                 </p>
                                 <p>
-                                    In 2015, we brought that same passion into the world of boutique fashion. What began as a small curated collection soon grew into a full-fledged clothing boutique — stocking handpicked ethnic wear, contemporary styles, and everything in between, sourced directly from skilled artisans and weavers across India.
+                                    We carefully curate and source high-quality skincare, makeup, and beauty products — from nourishing serums and moisturizers to bold lipsticks and eyeshadow palettes — ensuring every product is dermatologist-tested and cruelty-free.
                                 </p>
                                 <p>
-                                    Today, ClothingBrand is more than a store. It is a place where tradition meets style, where every kurta, saree, and outfit tells a story. We believe clothing should feel as good as it looks — and we curate every piece with that belief at heart.
+                                    Today, Budget Cosmetic is more than a store. It is a community of beauty lovers who believe that glowing skin and stunning looks should never come with a premium price tag. We are here for every skin tone, every occasion, every budget.
                                 </p>
                             </div>
                         </motion.div>
@@ -132,10 +132,10 @@ export default function AboutPage() {
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
-                            { value: 38, suffix: "+", label: "Years of Trust" },
-                            { value: 10000, suffix: "+", label: "Happy Customers" },
-                            { value: 500, suffix: "+", label: "Styles Curated" },
-                            { value: 100, suffix: "%", label: "Quality Assured" },
+                            { value: 5000, suffix: "+", label: "Happy Customers" },
+                            { value: 200, suffix: "+", label: "Products" },
+                            { value: 100, suffix: "%", label: "Cruelty Free" },
+                            { value: 100, suffix: "%", label: "Dermatologist Tested" },
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
@@ -161,7 +161,7 @@ export default function AboutPage() {
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">What We Stand For</h2>
                         <p className="text-[#717171] max-w-2xl mx-auto">
-                            Our values shape every piece we stock, every fabric we choose, and every customer we dress.
+                            Our values shape every product we stock, every formula we choose, and every customer we serve.
                         </p>
                     </div>
 
@@ -169,18 +169,18 @@ export default function AboutPage() {
                         {[
                             {
                                 icon: <ShieldCheck className="h-7 w-7" />,
-                                title: "Authentic Quality",
-                                description: "We work directly with weavers, artisans, and trusted textile suppliers — so every piece that reaches you meets our standard of quality."
+                                title: "Dermatologist Tested",
+                                description: "Every product in our range is tested for safety and skin compatibility — gentle enough for all skin types, effective enough to deliver real results."
                             },
                             {
                                 icon: <Heart className="h-7 w-7" />,
-                                title: "Thoughtful Curation",
-                                description: "Every style in our boutique is hand-selected with an eye for craftsmanship, wearability, and lasting appeal. No fast fashion, only pieces worth keeping."
+                                title: "Cruelty Free Always",
+                                description: "We are 100% cruelty-free. No animal testing, ever. Beauty with a conscience — because kindness should be part of every routine."
                             },
                             {
                                 icon: <Users className="h-7 w-7" />,
                                 title: "Customer First",
-                                description: "From helping you find the right size to styling advice for a special occasion — our customers are at the heart of everything we do."
+                                description: "From finding the right shade to skincare advice for your skin type — our customers are at the heart of everything we do."
                             }
                         ].map((v, i) => (
                             <motion.div
@@ -209,16 +209,16 @@ export default function AboutPage() {
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">Why Shop at ClothingBrand?</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">Why Shop at Budget Cosmetic?</h2>
                             <p className="text-[#4A4A4A] mb-8 leading-relaxed">
-                                We are not just a clothing store — we are a boutique built on four decades of trust. Here is what sets us apart from the rest.
+                                We are not just a beauty store — we are a brand built on the belief that quality cosmetics should be affordable for everyone.
                             </p>
                             <div className="space-y-4">
                                 {[
-                                    { icon: <Award className="h-5 w-5" />, text: "Hand-selected styles sourced directly from Indian weavers and artisans" },
-                                    { icon: <Shirt className="h-5 w-5" />, text: "Premium fabrics — cotton, silk, linen, and heritage handloom textiles" },
-                                    { icon: <Clock className="h-5 w-5" />, text: "Fast, careful delivery so your outfit arrives in perfect condition" },
-                                    { icon: <Heart className="h-5 w-5" />, text: "Personalized styling guidance — because every body and occasion is unique" },
+                                    { icon: <Award className="h-5 w-5" />, text: "Premium quality formulas at prices that won't break the bank" },
+                                    { icon: <Droplets className="h-5 w-5" />, text: "Skincare and makeup for all skin tones, types, and concerns" },
+                                    { icon: <Clock className="h-5 w-5" />, text: "Fast, careful delivery so your products arrive in perfect condition" },
+                                    { icon: <Heart className="h-5 w-5" />, text: "Personalized beauty guidance — because every skin is unique" },
                                 ].map((item, i) => (
                                     <motion.div
                                         key={i}
@@ -244,7 +244,7 @@ export default function AboutPage() {
                         >
                             <Image
                                 src="/logo.png"
-                                alt="ClothingBrand Boutique Collection"
+                                alt="Budget Cosmetic"
                                 fill
                                 className="object-contain p-4"
                             />
@@ -263,15 +263,15 @@ export default function AboutPage() {
                             viewport={{ once: true }}
                         >
                             <Sparkles className="h-10 w-10 text-[#B8975A] mx-auto mb-6" />
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Dressed in Excellence</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Glow with Excellence</h2>
                             <p className="text-white/70 text-lg mb-8 leading-relaxed">
-                                Thoughtfully curated, beautifully crafted, and defined by uncompromising quality in every stitch. Find your style at ClothingBrand.
+                                Thoughtfully curated, dermatologist-tested, and defined by uncompromising quality — all at a budget you&apos;ll love. Discover your glow at Budget Cosmetic.
                             </p>
                             <Link
                                 href="/products"
-                                className="inline-flex items-center gap-2 px-8 py-4 bg-[#1A1A1A] text-white font-semibold rounded-lg hover:bg-[#2C2C2C] transition-colors"
+                                className="inline-flex items-center gap-2 px-8 py-4 bg-[#B8975A] text-white font-semibold rounded-lg hover:bg-[#a07d45] transition-colors"
                             >
-                                Explore Collections <ArrowRight className="h-5 w-5" />
+                                Shop Now <ArrowRight className="h-5 w-5" />
                             </Link>
                         </motion.div>
                     </div>

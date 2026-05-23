@@ -142,7 +142,7 @@ export default function Navbar() {
         <>
             {/* Top Banner */}
             <div className="bg-[#1A1A1A] text-white text-center py-2 text-xs font-medium tracking-wide">
-                Free Shipping on orders above ₹999 | Use code WELCOME10 for 10% off
+                Free Shipping on orders above ₹999 | Use code GLOW10 for 10% off your first order
             </div>
 
             {/* Main Header - White Section */}
@@ -279,7 +279,7 @@ export default function Navbar() {
                             <div className="relative h-20 w-30 md:h-24 md:w-30">
                                 <Image
                                     src="/logo.png"
-                                    alt="ClothingBrand"
+                                    alt="Budget Cosmetic"
                                     fill
                                     className="object-contain"
                                     priority
@@ -487,7 +487,7 @@ export default function Navbar() {
                             <div className="flex items-center justify-between p-4 border-b border-[#EBEBEB]">
                                 <Link href="/" onClick={() => setIsMenuOpen(false)}>
                                     <div className="relative h-12 w-12">
-                                        <Image src="/logo.png" alt="ClothingBrand" fill className="object-contain" />
+                                        <Image src="/logo.png" alt="Budget Cosmetic" fill className="object-contain" />
                                     </div>
                                 </Link>
                                 <button

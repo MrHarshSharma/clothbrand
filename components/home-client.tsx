@@ -9,12 +9,12 @@ import ProductCard from '@/components/product-card'
 import RecentlyViewed from '@/components/recently-viewed'
 
 const CATEGORY_IMAGES = {
-    ethnic:      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80',
-    western:     'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80',
-    newArrivals: 'https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=800&q=80',
-    festive:     'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=800&q=80',
-    casual:      'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80',
-    bridal:      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80',
+    skincare:    'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=80',
+    makeup:      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80',
+    newArrivals: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80',
+    lipColor:    'https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=800&q=80',
+    everyday:    'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80',
+    premium:     'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80',
 }
 
 export default function HomeClient({ products }: { products: Product[] }) {
@@ -24,10 +24,10 @@ export default function HomeClient({ products }: { products: Product[] }) {
             <section className="relative w-full h-[90vh] min-h-[560px] overflow-hidden">
                 {/* Background Image */}
                 <Image
-                    src="/hero-image.png"
-                    alt="ClothingBrand Boutique Collection"
+                    src="/hero.jpg"
+                    alt="Cosmetics Collection"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     priority
                 />
 
@@ -43,15 +43,15 @@ export default function HomeClient({ products }: { products: Product[] }) {
                     <div className="container mx-auto px-6 lg:px-12">
                         <div className="max-w-xl">
                             <span className="inline-block px-3 py-1 border border-white/40 text-white/90 text-xs font-medium tracking-widest uppercase rounded-full mb-6">
-                                New Arrivals
+                                New Collection
                             </span>
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-semibold drop-shadow-lg mb-5 leading-tight" style={{ color: '#ffffff' }}>
-                                Wear What Feels
+                                Beauty That Feels
                                 <br />
                                 <span className="text-[#B8975A] italic">Like You</span>
                             </h1>
                             <p className="text-base md:text-lg text-white/90 mb-8 max-w-sm leading-relaxed drop-shadow">
-                                Curated ethnic and contemporary clothing for every occasion and celebration.
+                                Premium cosmetics and skincare crafted for every skin tone and occasion.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Link
@@ -159,17 +159,17 @@ export default function HomeClient({ products }: { products: Product[] }) {
                     {/* Section Header */}
                     <div className="mb-8">
                         <h2 className="text-2xl font-playfair font-semibold text-[#1A1A1A]">
-                            Shop by Style
+                            Shop by Category
                         </h2>
-                        <p className="text-sm text-[#717171] mt-1">Curated for every occasion</p>
+                        <p className="text-sm text-[#717171] mt-1">Curated for every skin tone and occasion</p>
                     </div>
 
                     {/* Editorial Grid: 1 large left + 2 stacked right */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
 
-                        {/* Large Left Tile — Ethnic Wear */}
-                        <Link href="/products?category=Ethnic" className="group relative bg-[#1A1A1A] rounded-2xl overflow-hidden min-h-[380px] md:min-h-[440px] flex flex-col justify-end p-8 block">
-                            <Image src={CATEGORY_IMAGES.ethnic} alt="Ethnic Wear" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                        {/* Large Left Tile — Skincare */}
+                        <Link href="/products?category=Skincare" className="group relative bg-[#1A1A1A] rounded-2xl overflow-hidden min-h-[380px] md:min-h-[440px] flex flex-col justify-end p-8 block">
+                            <Image src={CATEGORY_IMAGES.skincare} alt="Skincare" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             {/* Overlays */}
                             <div className="absolute inset-0 bg-black/50 pointer-events-none" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -179,10 +179,10 @@ export default function HomeClient({ products }: { products: Product[] }) {
                                     Featured
                                 </span>
                                 <h3 className="text-3xl lg:text-4xl font-playfair font-semibold mb-3 leading-tight" style={{ color: '#ffffff' }}>
-                                    Ethnic<br />Wear
+                                    Skin<br />Care
                                 </h3>
                                 <p className="text-sm text-white/80 mb-5 max-w-xs leading-relaxed">
-                                    Handpicked kurtas, sarees, and suits — rooted in tradition, styled for today.
+                                    Nourishing serums, moisturizers, and face care for radiant, healthy skin.
                                 </p>
                                 <span className="inline-flex items-center gap-2 text-sm font-medium text-white group-hover:text-[#B8975A] transition-colors">
                                     Explore Collection
@@ -194,9 +194,9 @@ export default function HomeClient({ products }: { products: Product[] }) {
                         {/* Right column — 2 stacked tiles */}
                         <div className="flex flex-col gap-4 lg:gap-5">
 
-                            {/* Western Wear */}
-                            <Link href="/products?category=Western" className="group relative bg-[#1A1A1A] rounded-2xl overflow-hidden min-h-[200px] md:min-h-[210px] flex flex-col justify-end p-6 block">
-                                <Image src={CATEGORY_IMAGES.western} alt="Western Wear" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                            {/* Makeup */}
+                            <Link href="/products?category=Makeup" className="group relative bg-[#1A1A1A] rounded-2xl overflow-hidden min-h-[200px] md:min-h-[210px] flex flex-col justify-end p-6 block">
+                                <Image src={CATEGORY_IMAGES.makeup} alt="Makeup" fill className="object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-black/45 pointer-events-none" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
 
@@ -205,7 +205,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
                                         Trending Now
                                     </span>
                                     <h3 className="text-2xl font-playfair font-semibold mb-3" style={{ color: '#ffffff' }}>
-                                        Western Wear
+                                        Makeup
                                     </h3>
                                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-white group-hover:text-[#B8975A] transition-colors">
                                         Shop Now
@@ -240,25 +240,25 @@ export default function HomeClient({ products }: { products: Product[] }) {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 mt-4 lg:mt-5">
                         {[
                             {
-                                label: 'Occasion Wear',
-                                title: 'Festive & Party',
-                                desc: 'Dress to impress for every celebration.',
-                                href: '/products?category=Festive',
-                                img: CATEGORY_IMAGES.festive,
+                                label: 'Bold & Beautiful',
+                                title: 'Lip Color',
+                                desc: 'Bold lipsticks and glosses — make every look pop.',
+                                href: '/products?category=Lip+Color',
+                                img: CATEGORY_IMAGES.lipColor,
                             },
                             {
-                                label: 'Everyday Comfort',
-                                title: 'Casual Wear',
-                                desc: 'Relaxed styles for your daily routine.',
-                                href: '/products?category=Casual',
-                                img: CATEGORY_IMAGES.casual,
+                                label: 'Daily Routine',
+                                title: 'Everyday Essentials',
+                                desc: 'Simple, effective essentials for your daily beauty routine.',
+                                href: '/products?category=Everyday',
+                                img: CATEGORY_IMAGES.everyday,
                             },
                             {
                                 label: 'Premium Collection',
-                                title: 'Bridal & Formal',
-                                desc: 'Exquisite pieces for your most special moments.',
-                                href: '/products?category=Bridal',
-                                img: CATEGORY_IMAGES.bridal,
+                                title: 'Luxury Beauty',
+                                desc: 'Luxury serums and treatments for your most radiant self.',
+                                href: '/products?category=Premium',
+                                img: CATEGORY_IMAGES.premium,
                             },
                         ].map((tile) => (
                             <Link
@@ -294,26 +294,26 @@ export default function HomeClient({ products }: { products: Product[] }) {
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="text-center mb-10">
                         <h2 className="text-2xl font-playfair font-semibold text-[#1A1A1A] mb-2">
-                            Why Shop at ClothingBrand?
+                            Why Shop With Us?
                         </h2>
                         <p className="text-sm text-[#717171]">
-                            What makes our boutique different
+                            What makes our beauty brand different
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                title: 'Curated Styles',
-                                desc: 'Each piece is hand-selected to ensure premium quality, great fit, and timeless style.',
+                                title: 'Dermatologist Tested',
+                                desc: 'Every product is tested for safety and efficacy — gentle on all skin types.',
                             },
                             {
-                                title: 'Authentic Fabrics',
-                                desc: 'We source premium textiles and fabrics from trusted artisans across India.',
+                                title: 'Cruelty Free',
+                                desc: 'We are 100% cruelty-free. No animal testing, ever — beauty with a conscience.',
                             },
                             {
-                                title: 'Every Occasion',
-                                desc: 'From everyday casuals to festive ethnic wear — we have styles for every moment.',
+                                title: 'Every Skin Tone',
+                                desc: 'From everyday glow to bold glam — we have shades and formulas for every moment.',
                             },
                         ].map((item, index) => (
                             <div key={index} className="text-center p-6">
@@ -341,7 +341,7 @@ export default function HomeClient({ products }: { products: Product[] }) {
                             Join Our Community
                         </h2>
                         <p className="text-[#4A4A4A] mb-8 text-lg">
-                            Follow us on Instagram for new arrivals, exclusive offers, behind-the-scenes, and styling inspiration.
+                            Follow us on Instagram for new launches, exclusive offers, beauty tips, and glam inspiration.
                         </p>
                         <a
                             href="https://www.instagram.com/clothingbrand"

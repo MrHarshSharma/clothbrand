@@ -19,8 +19,8 @@ const cormorant = Cormorant_Garamond({
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: 'ClothingBrand | Shop Fashion Online',
-  description: 'Shop ethnic wear, western styles, and fusion fashion at ClothingBrand. New arrivals every week.',
+  title: 'Budget Cosmetic | Premium Cosmetics & Skincare',
+  description: 'Shop premium cosmetics, skincare, and beauty essentials at Budget Cosmetic. Cruelty-free, dermatologist-tested. New launches every week.',
   icons: {
     icon: '/icon.png',
     apple: '/icon.png',

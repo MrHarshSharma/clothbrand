@@ -1,53 +1,45 @@
-import { createServiceRoleClient } from '@/utils/supabase/service-role'
+// import { createServiceRoleClient } from '@/utils/supabase/service-role'
 import { notFound } from 'next/navigation'
 import type { Metadata, ResolvingMetadata } from 'next'
 import ProductDetails from './product-details'
-import { Product } from '@/data/products'
+import { products, Product } from '@/data/products'
 
-// ISR: Revalidate every 10 minutes - product pages are cached at edge
-export const revalidate = 600
+// export const revalidate = 600
 
 interface PageProps {
     params: Promise<{ id: string }>
 }
 
-async function getProduct(id: string) {
-    // If ID is undefined, return null immediately
+function getProduct(id: string): Product | null {
     if (!id || id === 'undefined') return null
-
-    const supabase = createServiceRoleClient()
-    const { data: product, error } = await supabase
-        .from('product')
-        .select('*')
-        .eq('id', id)
-        .single()
-
-    if (error || !product) {
-        return null
-    }
-
-    return product as Product
+    return products.find(p => p.id.toString() === id) ?? null
 }
+
+// async function getProductFromDB(id: string) {
+//     const supabase = createServiceRoleClient()
+//     const { data: product, error } = await supabase
+//         .from('product')
+//         .select('*')
+//         .eq('id', id)
+//         .single()
+//     if (error || !product) return null
+//     return product as Product
+// }
 
 export async function generateMetadata(
     { params }: PageProps,
     parent: ResolvingMetadata
 ): Promise<Metadata> {
     const { id } = await params
-    const product = await getProduct(id)
+    const product = getProduct(id)
 
     if (!product) {
-        return {
-            title: 'Product Not Found',
-        }
+        return { title: 'Product Not Found' }
     }
 
     const previousImages = (await parent).openGraph?.images || []
-
-    // Use first product image or fallback
     const mainImage = product.images?.[0] || '/placeholder-product.png'
 
-    // Parse description if it's JSON
     let metaDescription = product.description
     try {
         const jsonDesc = JSON.parse(product.description)
@@ -55,11 +47,11 @@ export async function generateMetadata(
             metaDescription = jsonDesc.productDescription
         }
     } catch {
-        // Not JSON, use description as is
+        // Not JSON, use as-is
     }
 
     return {
-        title: product.name,
+        title: `${product.name} | Budget Cosmetic`,
         description: metaDescription,
         openGraph: {
             title: product.name,
@@ -71,7 +63,7 @@ export async function generateMetadata(
 
 export default async function ProductPage({ params }: PageProps) {
     const { id } = await params
-    const product = await getProduct(id)
+    const product = getProduct(id)
 
     if (!product) {
         notFound()

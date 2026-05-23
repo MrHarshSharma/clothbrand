@@ -18,14 +18,14 @@ export default function Footer() {
                             <div className="relative h-20 w-20">
                                 <Image
                                     src="/logo.png"
-                                    alt="ClothingBrand"
+                                    alt="Budget Cosmetic"
                                     fill
                                     className="object-contain"
                                 />
                             </div>
                         </Link>
                         <p className="text-sm text-[#717171] leading-relaxed mb-4">
-                            Curated boutique clothing and ethnic wear. Dressed in tradition, styled for today. Based in Nagpur, India.
+                            Premium cosmetics and skincare for every skin tone. Cruelty-free, dermatologist-tested beauty. Based in Nagpur, India.
                         </p>
                         <div className="flex items-center gap-3">
                             <a
@@ -117,7 +117,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="py-4 border-t border-[#EBEBEB] flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-[#717171]">
-                        © {currentYear} ClothingBrand. All rights reserved.
+                        © {currentYear} Budget Cosmetic. All rights reserved.
                     </p>
                     <div className="flex items-center gap-4">
                         <span className="text-xs text-[#717171]">We accept:</span>
