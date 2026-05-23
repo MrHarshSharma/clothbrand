@@ -276,7 +276,7 @@ export default function Navbar() {
 
                         {/* Center - Logo */}
                         <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex-shrink-0">
-                            <div className="relative h-20 w-30 md:h-24 md:w-30">
+                            <div className="relative h-36 w-36 md:h-44 md:w-44">
                                 <Image
                                     src="/tp_logo.png"
                                     alt="Budget Cosmetic"
