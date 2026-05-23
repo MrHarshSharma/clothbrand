@@ -88,11 +88,11 @@ export default function Footer() {
                         <ul className="space-y-3">
                             <li>
                                 <a
-                                    href="mailto:support@clothingbrand.com"
+                                    href="mailto:budgetcosmetics.in"
                                     className="flex items-start gap-3 text-sm text-[#717171] hover:text-[#B8975A] transition-colors"
                                 >
                                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                                    support@clothingbrand.com
+                                    support@budgetcosmetics.com
                                 </a>
                             </li>
                             <li>
